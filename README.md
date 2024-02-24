@@ -8,6 +8,7 @@ I designed the player mechanics including parts of movement, inventory, and weap
 Technologies used: Unity, C# in Visual Studio, Github, Jira.
 
 
+
 RTS: Real Time Survival
 https://sparklehands.itch.io/rts-real-time-survival
 
