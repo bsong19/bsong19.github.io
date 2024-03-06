@@ -20,3 +20,5 @@ I was the only developer on this game. I designed and developed the map, the pla
 I was inspired by the controls of RTS games like Starcraft 2 and League of Legends with the goal of infinite survival like Vampire Survivors to make this game. You move around the map like you're controlling an RTS hero while using cooldown based abilities to survive hordes of incoming enemies.
 
 Technologies used: Unity, C# in Visual Studio, Github, Jira.
+
+Short Story Writing Portfolio: https://docs.google.com/document/d/1MAiwkenCTk1nolJZlNWwWXCqNPACLu2Z_Jz-PiT5pLs/edit?usp=sharing
