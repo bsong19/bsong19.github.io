@@ -21,4 +21,10 @@ I was inspired by the controls of RTS games like Starcraft 2 and League of Legen
 
 Technologies used: Unity, C# in Visual Studio, Github, Jira.
 
+
+Hand of Light
+https://linkstorm.itch.io/hand-of-light
+
+I worked with a team of 5 on a micro based real time strategy game.
+
 Short Story Writing Portfolio: https://docs.google.com/document/d/1MAiwkenCTk1nolJZlNWwWXCqNPACLu2Z_Jz-PiT5pLs/edit?usp=sharing
