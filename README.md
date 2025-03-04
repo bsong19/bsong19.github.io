@@ -27,4 +27,4 @@ https://linkstorm.itch.io/hand-of-light
 
 I worked with a team of 5 on a micro based real time strategy game.
 
-Short Story Writing Portfolio: https://docs.google.com/document/d/1MAiwkenCTk1nolJZlNWwWXCqNPACLu2Z_Jz-PiT5pLs/edit?usp=sharing
+Short Story Writing Portfolio: https://drive.google.com/drive/folders/1VrBJPwcpl6V5EDkUQMn-2uEl6mPFEF9p
