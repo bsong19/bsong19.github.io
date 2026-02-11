@@ -21,6 +21,10 @@ I was inspired by the controls of RTS games like Starcraft 2 and League of Legen
 
 Technologies used: Unity, C# in Visual Studio, Github, Jira.
 
+EECS 440 Project 1 + custom feature
+https://www.youtube.com/watch?v=DCp_ATJyOQE
+https://www.youtube.com/watch?v=9rWH4sxv2y8
+
 
 Hand of Light
 https://linkstorm.itch.io/hand-of-light
