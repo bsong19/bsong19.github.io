@@ -33,6 +33,13 @@ https://linkstorm.itch.io/hand-of-light
 
 I worked with a team of 5 on a micro based real time strategy game.
 
+
+Custom Game Engine: Speculative Engine
+https://www.youtube.com/watch?v=xjlN01iinJw
+Technologies used: Lua, LuaBridge, SDL, GLM, Box2D, C++, imgui.
+Custom 2D game engine that you can make games in an editor like Unity or Unreal Engine.
+
+
 Short Story Writing Portfolio: https://drive.google.com/drive/folders/1VrBJPwcpl6V5EDkUQMn-2uEl6mPFEF9p
 
 3D modeling portfolio: https://eecs298.com/galleries/students/brsong/gallery.html
