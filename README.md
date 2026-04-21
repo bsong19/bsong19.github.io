@@ -40,6 +40,14 @@ Technologies used: Lua, LuaBridge, SDL, GLM, Box2D, C++, imgui.
 Custom 2D game engine that you can make games in an editor like Unity or Unreal Engine.
 
 
+VR Workout Game: Space Runner VR
+https://spacerunnerv2.my.canva.site/
+
+Technologies used: Unreal Engine
+
+VR workout game with a science fiction aesthetic. 3D modeled and developed the turret and deflection system, as well as designed the other levels.
+
+
 Short Story Writing Portfolio: https://drive.google.com/drive/folders/1VrBJPwcpl6V5EDkUQMn-2uEl6mPFEF9p
 
 3D modeling portfolio: https://eecs298.com/galleries/students/brsong/gallery.html
