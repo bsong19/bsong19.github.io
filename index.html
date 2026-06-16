@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brian Song — Game Developer & Creative Technologist</title>
+  <meta name="description" content="Portfolio of Brian Song — games, custom engines, 3D modeling, and writing." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── Tokens ─────────────────────────────────────────────── */
+    :root {
+      --bg:         #0D0F14;
+      --surface:    #161B27;
+      --border:     #1E2740;
+      --accent:     #00E5FF;
+      --accent-dim: #007A8C;
+      --text:       #E8EAF0;
+      --muted:      #8892A4;
+      --tag-bg:     #1A2540;
+      --radius:     10px;
+      --font-head:  'Space Grotesk', sans-serif;
+      --font-body:  'Inter', sans-serif;
+    }
+
+    /* ─── Reset ──────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    img { max-width: 100%; display: block; }
+
+    /* ─── Layout ─────────────────────────────────────────────── */
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ─── Nav ────────────────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(13,15,20,0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    nav .inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    nav .logo {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+    nav .logo span { color: var(--accent); }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 28px;
+    }
+    nav ul a {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    nav ul a:hover { color: var(--text); text-decoration: none; }
+
+    /* ─── Hero ───────────────────────────────────────────────── */
+    .hero {
+      padding: 96px 24px 80px;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .hero-eyebrow {
+      font-family: var(--font-head);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-family: var(--font-head);
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      margin-bottom: 24px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+    .hero-desc {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 560px;
+      margin-bottom: 36px;
+    }
+    .hero-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: #000;
+      font-family: var(--font-head);
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 11px 22px;
+      border-radius: var(--radius);
+      transition: opacity 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.85; text-decoration: none; }
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: var(--font-head);
+      font-weight: 500;
+      font-size: 0.9rem;
+      padding: 11px 22px;
+      border-radius: var(--radius);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+
+    /* ─── Section labels ─────────────────────────────────────── */
+    .section { padding: 72px 0; }
+    .section-label {
+      font-family: var(--font-head);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-family: var(--font-head);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 48px;
+      color: var(--text);
+    }
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    /* ─── Project cards ──────────────────────────────────────── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+      gap: 24px;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .card:hover { border-color: var(--accent-dim); transform: translateY(-2px); }
+
+    /* YouTube embed */
+    .card-media {
+      position: relative;
+      background: #0a0c10;
+      cursor: pointer;
+    }
+    .card-media .thumb {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      display: block;
+      opacity: 0.85;
+      transition: opacity 0.2s;
+    }
+    .card-media:hover .thumb { opacity: 1; }
+    .card-media .play-btn {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+    .card-media .play-btn svg {
+      width: 60px;
+      height: 60px;
+      filter: drop-shadow(0 2px 12px rgba(0,0,0,0.7));
+    }
+    .card-media iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border: none;
+      display: block;
+    }
+    /* itch embed placeholder */
+    .card-itch-banner {
+      width: 100%;
+      aspect-ratio: 16/7;
+      object-fit: cover;
+      opacity: 0.8;
+      display: block;
+    }
+
+    .card-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex: 1;
+    }
+    .card-title {
+      font-family: var(--font-head);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+    .card-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: auto;
+      padding-top: 4px;
+    }
+    .tag {
+      background: var(--tag-bg);
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-family: var(--font-head);
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      padding: 3px 9px;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+    }
+    .card-footer {
+      padding: 0 24px 20px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .card-link {
+      font-family: var(--font-head);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: opacity 0.2s;
+    }
+    .card-link:hover { opacity: 0.75; text-decoration: none; }
+
+    /* ─── Full-width card variant ────────────────────────────── */
+    .card.wide { grid-column: 1 / -1; }
+    .card.wide .card-videos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+    .card.wide .card-videos .card-media:first-child {
+      border-right: 1px solid var(--border);
+    }
+
+    /* ─── Other work ─────────────────────────────────────────── */
+    .other-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .mini-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: border-color 0.25s;
+    }
+    .mini-card:hover { border-color: var(--accent-dim); }
+    .mini-card .icon { font-size: 1.6rem; }
+    .mini-card h3 {
+      font-family: var(--font-head);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .mini-card p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+    .mini-card a {
+      font-family: var(--font-head);
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-top: auto;
+    }
+
+    /* ─── Footer ─────────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 24px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    footer a { color: var(--accent); }
+
+    /* ─── Responsive ─────────────────────────────────────────── */
+    @media (max-width: 700px) {
+      .projects-grid { grid-template-columns: 1fr; }
+      .card.wide .card-videos { grid-template-columns: 1fr; }
+      .card.wide .card-videos .card-media:first-child { border-right: none; border-bottom: 1px solid var(--border); }
+      nav ul { gap: 16px; }
+    }
+    @media (max-width: 480px) {
+      nav ul { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="inner">
+    <span class="logo">Brian<span>.</span></span>
+    <ul>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#other">Writing & Art</a></li>
+      <li><a href="https://github.com/bsong19" target="_blank">GitHub ↗</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <p class="hero-eyebrow">Game Developer &amp; Creative Technologist</p>
+  <h1>Building worlds,<br /><em>one system at a time.</em></h1>
+  <p class="hero-desc">
+    I make games, engines, and interactive experiences — from VR workout apps to hand-rolled 2D game engines. Based in games, fluent in C++, C#, Lua, Unity, and Unreal Engine.
+  </p>
+  <div class="hero-links">
+    <a class="btn-primary" href="#projects">See my work</a>
+    <a class="btn-ghost" href="https://github.com/bsong19" target="_blank">GitHub Profile</a>
+  </div>
+</header>
+
+<hr class="divider" />
+
+<!-- PROJECTS -->
+<section id="projects" class="section">
+  <div class="container">
+    <p class="section-label">Selected Work</p>
+    <h2 class="section-title">Projects</h2>
+
+    <div class="projects-grid">
+
+      <!-- Zelda Remake -->
+      <div class="card">
+        <div class="card-body">
+          <div class="card-title">Legend of Zelda — Dungeon 1 Remake</div>
+          <div class="card-desc">
+            Remade the first dungeon of the original Legend of Zelda with a custom level. Designed the full player mechanics: movement, inventory, weapon UI, sword, bow &amp; arrow, bomb, and boomerang. The custom level introduces a player-controlled bomb that can be pushed with weapons and manually detonated.
+          </div>
+          <div class="card-tags">
+            <span class="tag">Unity</span>
+            <span class="tag">C#</span>
+            <span class="tag">GitHub</span>
+            <span class="tag">Jira</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a class="card-link" href="https://sparklehands.itch.io/zelda-1-dungeon-1-remake-custom-level" target="_blank">Play on itch.io ↗</a>
+        </div>
+      </div>
+
+      <!-- RTS: Real Time Survival -->
+      <div class="card">
+        <div class="card-body">
+          <div class="card-title">RTS: Real Time Survival</div>
+          <div class="card-desc">
+            Solo-developed survival game fusing Starcraft 2–style RTS controls with the infinite horde loop of Vampire Survivors. Designed and built the map, player controls, cooldown-based abilities, enemy interactions, and enemy AI from scratch.
+          </div>
+          <div class="card-tags">
+            <span class="tag">Unity</span>
+            <span class="tag">C#</span>
+            <span class="tag">GitHub</span>
+            <span class="tag">Jira</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a class="card-link" href="https://sparklehands.itch.io/rts-real-time-survival" target="_blank">Play on itch.io ↗</a>
+          <a class="card-link" href="https://sparklehands.itch.io/p2goldspikedownload" target="_blank">Gold Spike Build ↗</a>
+        </div>
+      </div>
+
+      <!-- EECS 440 — 2 YouTube videos side by side -->
+      <div class="card wide">
+        <div class="card-videos">
+          <div class="card-media" id="yt-440-1" onclick="loadYT('yt-440-1','DCp_ATJyOQE')">
+            <img class="thumb" src="https://img.youtube.com/vi/DCp_ATJyOQE/hqdefault.jpg" alt="EECS 440 Project 1 demo" />
+            <div class="play-btn">
+              <svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
+                <rect width="68" height="48" rx="10" fill="rgba(0,0,0,0.6)"/>
+                <polygon points="26,14 26,34 48,24" fill="#00E5FF"/>
+              </svg>
+            </div>
+          </div>
+          <div class="card-media" id="yt-440-2" onclick="loadYT('yt-440-2','9rWH4sxv2y8')">
+            <img class="thumb" src="https://img.youtube.com/vi/9rWH4sxv2y8/hqdefault.jpg" alt="EECS 440 custom feature demo" />
+            <div class="play-btn">
+              <svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
+                <rect width="68" height="48" rx="10" fill="rgba(0,0,0,0.6)"/>
+                <polygon points="26,14 26,34 48,24" fill="#00E5FF"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">EECS 440 — Project 1 + Custom Feature</div>
+          <div class="card-desc">Course project featuring a custom-built feature extension. Click either video above to watch the demos.</div>
+        </div>
+      </div>
+
+      <!-- Hand of Light -->
+      <div class="card">
+        <div class="card-body">
+          <div class="card-title">Hand of Light</div>
+          <div class="card-desc">
+            Team of 5 micro-based real-time strategy game. Collaborated on design and implementation of core systems.
+          </div>
+          <div class="card-tags">
+            <span class="tag">Team Project</span>
+            <span class="tag">RTS</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a class="card-link" href="https://linkstorm.itch.io/hand-of-light" target="_blank">Play on itch.io ↗</a>
+        </div>
+      </div>
+
+      <!-- Speculative Engine -->
+      <div class="card">
+        <div class="card-media" id="yt-engine" onclick="loadYT('yt-engine','xjlN01iinJw')">
+          <img class="thumb" src="https://img.youtube.com/vi/xjlN01iinJw/hqdefault.jpg" alt="Speculative Engine demo" />
+          <div class="play-btn">
+            <svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
+              <rect width="68" height="48" rx="10" fill="rgba(0,0,0,0.6)"/>
+              <polygon points="26,14 26,34 48,24" fill="#00E5FF"/>
+            </svg>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Custom Game Engine — Speculative Engine</div>
+          <div class="card-desc">
+            A custom 2D game engine with a Unity/Unreal-style editor workflow. Built from scratch with a full scene editor, scripting via Lua, and physics integration.
+          </div>
+          <div class="card-tags">
+            <span class="tag">C++</span>
+            <span class="tag">Lua</span>
+            <span class="tag">LuaBridge</span>
+            <span class="tag">SDL</span>
+            <span class="tag">Box2D</span>
+            <span class="tag">GLM</span>
+            <span class="tag">imgui</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Space Runner VR -->
+      <div class="card">
+        <div class="card-body">
+          <div class="card-title">Space Runner VR</div>
+          <div class="card-desc">
+            VR workout game with a sci-fi aesthetic. 3D modeled and developed the turret and deflection system, and designed multiple levels. Built with Unreal Engine.
+          </div>
+          <div class="card-tags">
+            <span class="tag">Unreal Engine</span>
+            <span class="tag">VR</span>
+            <span class="tag">3D Modeling</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a class="card-link" href="https://spacerunnerv2.my.canva.site/" target="_blank">Project Site ↗</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- WRITING & ART -->
+<section id="other" class="section">
+  <div class="container">
+    <p class="section-label">Beyond Code</p>
+    <h2 class="section-title">Writing &amp; Art</h2>
+
+    <div class="other-grid">
+      <div class="mini-card">
+        <div class="icon">✍️</div>
+        <h3>Short Story Writing</h3>
+        <p>A collection of short fiction exploring character, world-building, and narrative craft.</p>
+        <a href="https://drive.google.com/drive/folders/1VrBJPwcpl6V5EDkUQMn-2uEl6mPFEF9p" target="_blank">Read the collection ↗</a>
+      </div>
+      <div class="mini-card">
+        <div class="icon">🖼️</div>
+        <h3>3D Modeling Portfolio</h3>
+        <p>A gallery of 3D models and renders developed through coursework and personal projects.</p>
+        <a href="https://eecs298.com/galleries/students/brsong/gallery.html" target="_blank">View the gallery ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>Brian Song · <a href="https://github.com/bsong19" target="_blank">github.com/bsong19</a></p>
+  <p style="margin-top:6px;">Built with HTML &amp; CSS · Hosted on GitHub Pages</p>
+</footer>
+
+<script>
+  // Lazy-load YouTube iframes on thumbnail click
+  function loadYT(containerId, videoId) {
+    const el = document.getElementById(containerId);
+    if (!el) return;
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+    iframe.allowFullscreen = true;
+    iframe.style.cssText = 'width:100%;aspect-ratio:16/9;border:none;display:block;';
+    el.innerHTML = '';
+    el.appendChild(iframe);
+    el.style.cursor = 'default';
+  }
+</script>
+
+</body>
+</html>
